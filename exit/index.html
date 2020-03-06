@@ -16,6 +16,7 @@
         window.mobilecheck = function() {
             var check = false;
             if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) check = true;
+            if(new URL(window.location.href).searchParams.get("mobile")) check = true;
             return check;
         };
         var lang = "en";
@@ -134,7 +135,7 @@
 
 <body>
     <div id="console">
-        <span class="blink">&shy;_</span>
+        <table><tr><td><span class="blink">&shy;_</span></td><td></td></tr></table>
     </div>
     <div style="height:  40px;"></div>
     <div id="buttons">
