@@ -109,8 +109,8 @@
         }
         function play(file) {
             let html = "<video autoplay='autoplay'>";
-            html += "<source src='./media/"+file+".webm'>";
             html += "<source src='./media/"+file+".mp4'>";
+            html += "<source src='./media/"+file+".webm'>";
             html += "<img src='./media/"+file+".gif'>";
             html += "</video>";
             document.body.innerHTML = html;
@@ -132,6 +132,7 @@
             display: none;
             position: fixed;
             bottom: 15px;
+			left: 0;
             text-align: center;
             width: 99vw;
         }
@@ -174,12 +175,12 @@
 <body>
     <div style="display: none;">
         <video preload="auto">
-            <source src="./media/enter.webm">
             <source src="./media/enter.mp4">
+            <source src="./media/enter.webm">
         </video>
         <video preload="auto">
-            <source src="./media/n.webm">
             <source src="./media/n.mp4">
+            <source src="./media/n.webm">
         </video>
     </div>
     <div id="console">
