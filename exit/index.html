@@ -33,13 +33,13 @@
             if (curLoc.searchParams.get("lang")) lang = curLoc.searchParams.get("lang");
         else if (navigator.language) lang = navigator.language.split('-')[0];
             var s = document.createElement("script");
-            s.src = "./" + lang + ".js";
+            s.src = "./lang/" + lang + ".js";
             //debugger;
             s.onload = function() {
                 start();
             }
             s.onerror = function() {
-                s.src = "./en.js";
+                s.src = "./lang/en.js";
             }
             document.body.appendChild(s);
         });
@@ -109,9 +109,9 @@
         }
         function play(file) {
             let html = "<video autoplay='autoplay' controls='no'>";
-            html += "<source src='./"+file+".mp4'>";
-            html += "<source src='./"+file+".webm'>";
-            html += "<img src='./"+file+".gif'>";
+            html += "<source src='./media/"+file+".webm'>";
+            html += "<source src='./media/"+file+".mp4'>";
+            html += "<img src='./media/"+file+".gif'>";
             html += "</video>";
             document.body.innerHTML = html;
         }
@@ -174,12 +174,12 @@
 <body>
     <div style="display: none;">
         <video preload="auto">
-            <source src="./enter.mp4">
-            <source src="./enter.webm">
+            <source src="./media/enter.webm">
+            <source src="./media/enter.mp4">
         </video>
         <video preload="auto">
-            <source src="./n.mp4">
-            <source src="./n.webm">
+            <source src="./media/n.webm">
+            <source src="./media/n.mp4">
         </video>
     </div>
     <div id="console">
