@@ -108,7 +108,7 @@
             });
         }
         function play(file) {
-            let html = "<video autoplay='autoplay' controls='no'>";
+            let html = "<video autoplay='autoplay'>";
             html += "<source src='./media/"+file+".webm'>";
             html += "<source src='./media/"+file+".mp4'>";
             html += "<img src='./media/"+file+".gif'>";
@@ -126,14 +126,14 @@
             font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
             
         }
-        video {width: 99%; height: 99%;}
+        video {width: 99vw; height: 99vw;}
         img {max-width: 99%; max-height: 99%;}
         #buttons {
             display: none;
             position: fixed;
             bottom: 15px;
             text-align: center;
-            width: 99%;
+            width: 99vw;
         }
         
         button {
