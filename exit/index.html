@@ -45,7 +45,7 @@
 
                 if (curLe < p[curTd].length) {
                     if (" -.,«»\n\s".indexOf(p[curTd][curLe]) > -1)
-                        cursor = "_&shy;";
+                        cursor = "&shy;_&shy;";
                     if (p[curTd][curLe] == "\n")
                         cursor = "<br>&shy;_&shy;";
                     let text = "";
@@ -85,6 +85,9 @@
         }
     </script>
     <style>
+        html {
+            overflow-y:scroll;
+        }
         body {
             background-color: rgba(12, 12, 12, 1);
             color: rgba(204, 204, 204, 1);
