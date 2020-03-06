@@ -7,24 +7,30 @@
    \   /   | |  | | |  <     | |       | . ` |    > >
     | |    | |__| | | . \   _| |_   _  | |\  |   / / 
     |_|     \____/  |_|\_\ |_____| (_) |_| \_|  /_/  
+
+    vk.com/sosdan
 -->
 
 <head>
     <meta charset="utf-8">
     <title>exit</title>
     <script>
+        var curLoc = new URL(window.location.href);
         window.mobilecheck = function() {
             var check = false;
             if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) check = true;
-            if(new URL(window.location.href).searchParams.get("mobile")) check = true;
+            if(curLoc.searchParams.get("mobile")) check = true;
             return check;
         };
         var lang = "en";
         var started = false;
+        var ended = false;
         var curTd = 0;
         var curLe = 0;
-        if (navigator.language) lang = navigator.language.split('-')[0];
+        
         document.addEventListener("DOMContentLoaded", function(event) {
+            if (curLoc.searchParams.get("lang")) lang = curLoc.searchParams.get("lang");
+        else if (navigator.language) lang = navigator.language.split('-')[0];
             var s = document.createElement("script");
             s.src = "./" + lang + ".js";
             //debugger;
@@ -44,12 +50,16 @@
                 let cursor = "_";
 
                 if (curLe < p[curTd].length) {
-                    if (" -.,«»\n\s".indexOf(p[curTd][curLe]) > -1)
-                        cursor = "&shy;_&shy;";
+                    if (" -".indexOf(p[curTd][curLe]) > -1)
+                        cursor = "<wbr>_<wbr>";
                     if (p[curTd][curLe] == "\n")
-                        cursor = "<br>&shy;_&shy;";
+                        cursor = "<br><wbr>_<wbr>";
+                    if (p[curTd]==" ") cursor = " ";
                     let text = "";
-                    text = p[curTd].slice(0, curLe).replace(/\n/g, "<br>") + cursor + "<span class='invisible'>" + p[curTd].slice(curLe).slice(1).replace(/\n/g, "<br>") //.replace(/./g," ") 
+                    text = p[curTd].slice(0, curLe).replace(/\n/g, "<br>")
+                        + cursor
+                        + "<span class='invisible'>"
+                        + p[curTd].slice(curLe).slice(1).replace(/\n/g, "<br>")
                         + "</span>";
                     tds[curTd].innerHTML = text;
                     curLe++;
@@ -58,30 +68,51 @@
                     curTd++;
                 }
                 if (curTd % 2 == 0 && curLe == 0) {
-                    if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'>&shy;_</span>";
-                    setTimeout(printLe, speed * 50);
+                    if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
+                    setTimeout(printLe, 4000/*speed * 50*/);
                 } else {
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<br><br>";
                     setTimeout(printLe, speed);
                 }
             } else {
-                tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'>&shy;_</span>";
+                tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
                 if (window.mobilecheck()) document.getElementById("buttons").style.display = "block";
+                else end();
             }
             window.scrollTo(0, document.body.scrollHeight);
         }
 
         function start() {
             if (!started) {
-                let table = '<table><tr><td><span class="blink">&shy;_</span></td><td></td></tr>';
+                let table = '<table><tr><td><span class="blink"><wbr>_</span></td><td></td></tr>';
                 for (let i = 0; i < (p.length / 2) - 1; i++) {
                     table += '<tr><td></td><td></td></tr>';
                 }
                 table += '</table>';
                 document.getElementById("console").innerHTML = table;
-                setTimeout(printLe, speed * 63);
+                setTimeout(printLe, 5000/*speed * 63*/);
                 started = true;
             }
+        }
+        function end() {
+            document.body.addEventListener("keydown", function (e) {
+                if(!ended) {
+                    if (e.keyCode == 13) {
+                        play("enter");
+                    } else {
+                        play("n");
+                    }
+                }
+                ended = true;
+            });
+        }
+        function play(file) {
+            let html = "<video autoplay='autoplay' controls='no'>";
+            html += "<source src='./"+file+".mp4'>";
+            html += "<source src='./"+file+".webm'>";
+            html += "<img src='./"+file+".gif'>";
+            html += "</video>";
+            document.body.innerHTML = html;
         }
     </script>
     <style>
@@ -94,13 +125,14 @@
             font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
             
         }
-        
+        video {width: 99%; height: 99%;}
+        img {max-width: 99%; max-height: 99%;}
         #buttons {
             display: none;
             position: fixed;
             bottom: 15px;
             text-align: center;
-            width: 100%;
+            width: 99%;
         }
         
         button {
@@ -139,13 +171,23 @@
 </head>
 
 <body>
+    <div style="display: none;">
+        <video preload="auto">
+            <source src="./enter.mp4">
+            <source src="./enter.webm">
+        </video>
+        <video preload="auto">
+            <source src="./n.mp4">
+            <source src="./n.webm">
+        </video>
+    </div>
     <div id="console">
         <table><tr><td><span class="blink">&shy;_</span></td><td></td></tr></table>
     </div>
     <div style="height:  55px;"></div>
     <div id="buttons">
-        <button>Enter</button>
-        <button>N</button>
+        <button onClick="play('enter');">Enter</button>
+        <button onClick="play('n');">N</button>
     </div>
 </body>
 
