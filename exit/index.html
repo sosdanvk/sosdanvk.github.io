@@ -114,6 +114,7 @@
             html += "<img src='./media/"+file+".gif'>";
             html += "</video>";
             document.body.innerHTML = html;
+			document.getElementsByTagName("video")[0].play();
         }
     </script>
     <style>
@@ -126,7 +127,12 @@
             font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
             
         }
-        video {width: 99%; height: 99%;}
+        video {
+		    width: 99%; 
+			height: 99%; 
+			position: fixed; 
+			top:0;left:0;
+		}
         img {max-width: 99%; max-height: 99%;}
         #buttons {
             display: none;
