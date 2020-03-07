@@ -34,9 +34,8 @@
         else if (navigator.language) lang = navigator.language.split('-')[0];
             var s = document.createElement("script");
             s.src = "./lang/" + lang + ".js";
-            //debugger;
             s.onload = function() {
-                start();
+			    start();
             }
             s.onerror = function() {
                 s.src = "./lang/en.js";
@@ -75,10 +74,12 @@
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<br><br>";
                     setTimeout(printLe, speed);
                 }
+				if (curTd >= p.length) {
+					if (window.mobilecheck() || !document.hasFocus()) document.getElementById("buttons").style.display = "block";
+					else end();
+				}
             } else {
                 tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
-                if (window.mobilecheck()) document.getElementById("buttons").style.display = "block";
-                else end();
             }
             window.scrollTo(0, document.body.scrollHeight);
         }
