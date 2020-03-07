@@ -108,9 +108,9 @@
             });
         }
         function play(file) {
-            let html = "<video autoplay='1' onerror='document.body.write(this.error.message);'>";
-            html += "<source src='./media/"+file+".mp4'>";
-            html += "<source src='./media/"+file+".webm'>";
+            let html = "<video autoplay='1' poster='./media/"+file+".jpg'>";
+            html += "<source src='./media/"+file+".mp4' type='video/mp4'>";
+            html += "<source src='./media/"+file+".webm' type='video/webm'>";
             html += "<img src='./media/"+file+".gif'>";
             html += "</video>";
             document.body.innerHTML = html;
@@ -167,6 +167,9 @@
         .invisible {
             color: rgba(12, 12, 12, 1);
             color: transparent;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			user-select: none;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
@@ -175,12 +178,12 @@
 <body>
     <div style="display: none;">
         <video preload="auto">
-            <source src="./media/enter.mp4">
-            <source src="./media/enter.webm">
+            <source src="./media/enter.mp4" type="video/mp4">
+            <source src="./media/enter.webm" type="video/webm">
         </video>
         <video preload="auto">
-            <source src="./media/n.mp4">
-            <source src="./media/n.webm">
+            <source src="./media/n.mp4" type="video/mp4">
+            <source src="./media/n.webm" type="video/webm">
         </video>
     </div>
     <div id="console">
