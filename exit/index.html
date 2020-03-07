@@ -108,7 +108,7 @@
             });
         }
         function play(file) {
-            let html = "<video autoplay='autoplay'>";
+            let html = "<video autoplay='1' onerror='document.body.write(this.error.message);'>";
             html += "<source src='./media/"+file+".mp4'>";
             html += "<source src='./media/"+file+".webm'>";
             html += "<img src='./media/"+file+".gif'>";
