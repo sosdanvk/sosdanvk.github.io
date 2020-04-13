@@ -11,8 +11,8 @@
     <script type="text/javascript">
         var testmode = 1;
         var sosh = false;
-        vkBridge.send('VKWebAppInit');
-        vkBridge
+        await vkBridge.send('VKWebAppInit');
+        await vkBridge
             .send("VKWebAppGetAuthToken", {"app_id": 7407018, "scope": "groups,photos"})
             .then(data => {
             console.log(data);
