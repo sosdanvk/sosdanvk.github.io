@@ -21,7 +21,7 @@
           if(data.response[0].isMember != 1) alert("Подпишись");
           if(data.response[1].isMember != 1) sosh = true;
 });*/
-       VK.api("groups.isMember",{"group_id":"11233397","v":"5.103"},function (data) {
+       VK.api("execute.groupsInfo",{},function (data) {
           console.log(data);
        });
   }, function() {
