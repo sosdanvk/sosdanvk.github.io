@@ -24,7 +24,7 @@
         });
   VK.init(function() {
        VK.api("execute.groupsInfo",{"v":"5.103","test_mode":testmode}, function (data) {
-           if(data.response.main.is_member != 2) vkBridge.send("VKWebAppJoinGroup", {"group_id": 41667645});
+           if(data.response.main.is_member != 1) vkBridge.send("VKWebAppJoinGroup", {"group_id": 11233397});
           console.log(data);
        });
       /*VK.api("wall.get",{"owner_id":-11233397,"filter":"postponed","count":5,"v":"5.103","test_mode":testmode},function (data) {
