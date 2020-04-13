@@ -12,9 +12,9 @@
   VK.init(function() {
      // API initialization succeeded
      // Your code here
-          console.log("ololololo1);
+          console.log("ololololo1");
       VK.callMethod("showSettingsBox", 262144);
-          console.log("ololololo2);
+          console.log("ololololo2");
       VK.api("groups.getById",{"group_ids":"11233397,119682905","fields":"is_member","v":"5.103","test_mode":1},function (data) {
           console.log(data);
           if(data.response[0].isMember != 1) alert("Подпишись");
