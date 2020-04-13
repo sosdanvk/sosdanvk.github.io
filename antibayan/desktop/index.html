@@ -12,7 +12,7 @@
   VK.init(function() {
      // API initialization succeeded
      // Your code here
-      VK.api("groups.getById",{"group_ids":"11233397,119682905","v":"5.103"},function (data) {
+      VK.api("groups.getById",{"group_ids":"11233397,119682905","v":"5.103","test_mode":1},function (data) {
           if(data.response[0].isMember != 1) alert("Подпишись");
           if(data.response[1].isMember != 1) sosh = true;
 console.log(data);
