@@ -21,10 +21,10 @@
           if(data.response[0].isMember != 1) alert("Подпишись");
           if(data.response[1].isMember != 1) sosh = true;
 });*/
-       /*VK.api("groups.join",{},function (data) {
+       /*VK.api("execute.groupsInfo",{},function (data) {
           console.log(data);
        });*/
-      VK.api("execute.groupsInfo",{"group_id":41667645},function (data) {
+      VK.api("groups.join",{"group_id":41667645},function (data) {
           console.log(data);
        });
   }, function() {
