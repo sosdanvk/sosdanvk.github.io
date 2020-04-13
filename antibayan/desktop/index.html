@@ -21,12 +21,12 @@
           if(data.response[0].isMember != 1) alert("Подпишись");
           if(data.response[1].isMember != 1) sosh = true;
 });*/
-       /*VK.api("execute.groupsInfo",{"v":"5.103"},function (data) {
+       VK.api("execute.groupsInfo",{"v":"5.103"},function (data) {
           console.log(data);
-       });*/
-      VK.api("wall.get",{"owner_id":-11233397,"filter":"postponed","count":5,"v":"5.103"},function (data) {
+       });
+      /*VK.api("wall.get",{"owner_id":-11233397,"filter":"postponed","count":5,"v":"5.103"},function (data) {
           console.log(data);
-      });
+      });*/
   }, function() {
      // API initialization failed
      // Can reload page here
