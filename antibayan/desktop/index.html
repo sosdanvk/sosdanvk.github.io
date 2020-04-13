@@ -11,6 +11,7 @@
     <script type="text/javascript">
         var testmode = 1;
         var sosh = false;
+        async start() {
         await vkBridge.send('VKWebAppInit');
         await vkBridge
             .send("VKWebAppGetAuthToken", {"app_id": 7407018, "scope": "groups,photos"})
@@ -44,6 +45,7 @@
      // Can reload page here
       alert("fail");
 }, '5.103');
+        }
 </script>
 </body>
 </html>
