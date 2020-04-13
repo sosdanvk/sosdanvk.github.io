@@ -23,18 +23,14 @@
             
         });
   VK.init(function() {
-     // API initialization succeeded
-     // Your code here
-          console.log("ololololo1");
-      //VK.callMethod("showSettingsBox", 262144);
-      VK.callMethod("showSettingsBox", 8214);
           console.log("ololololo2");
      /* VK.api("groups.getById",{"group_ids":"11233397,119682905","fields":"is_member","v":"5.103","test_mode":testmode},function (data) {
           console.log(data);
           if(data.response[0].isMember != 1) alert("Подпишись");
           if(data.response[1].isMember != 1) sosh = true;
 });*/
-       VK.api("execute.groupsInfo",{"v":"5.103","test_mode":testmode},function (data) {
+       await VK.api("execute.groupsInfo",{"v":"5.103","test_mode":testmode}, async function (data) {
+           if(data.response.main.is_member != 2) await bridge.send("VKWebAppJoinGroup", {"group_id": 41667645});
           console.log(data);
        });
       /*VK.api("wall.get",{"owner_id":-11233397,"filter":"postponed","count":5,"v":"5.103","test_mode":testmode},function (data) {
