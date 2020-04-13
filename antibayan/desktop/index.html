@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <title>#Антибаян@sosdan</title>
     <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 </head>
 
 <body>
     <script type="text/javascript">
         var testmode = 1;
         var sosh = false;
+        vkBridge.send('VKWebAppInit');
+        vkBridge.send("VKWebAppGetAuthToken", {"app_id": 7407018, "scope": "groups"});
   VK.init(function() {
      // API initialization succeeded
      // Your code here
