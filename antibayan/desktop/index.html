@@ -5,37 +5,11 @@
     <title>#Антибаян@sosdan</title>
     <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js" type="text/javascript"></script>
+    <script src="http://mrbl.3dn.ru/antibayan/script/main.js" type="text/javascript"></script>
 </head>
 
 <body>
     <script type="text/javascript">
-        var testmode = 1;
-        var sosh = false;
-        async function start() {
-        await vkBridge.send('VKWebAppInit');
-        await vkBridge
-            .send("VKWebAppGetAuthToken", {"app_id": 7407018, "scope": "groups,photos"})
-            .then(data => {
-            console.log(data);
-            })
-            .catch(error => {
-            console.log(error);
-            
-        });
-  VK.init(function() {
-       VK.api("execute.groupsInfo",{"v":"5.103","test_mode":testmode}, function (data) {
-           if(data.response.main.is_member != 1) vkBridge.send("VKWebAppJoinGroup", {"group_id": 11233397});
-          console.log(data);
-       });
-      /*VK.api("wall.get",{"owner_id":-11233397,"filter":"postponed","count":5,"v":"5.103","test_mode":testmode},function (data) {
-          console.log(data);
-      });*/
-  }, function() {
-     // API initialization failed
-     // Can reload page here
-      alert("fail");
-}, '5.103');
-        }
         start();
 </script>
 </body>
