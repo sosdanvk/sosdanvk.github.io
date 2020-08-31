@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="utf-8">
+			<title>Emergency Escape Program</title>
+			<link rel="icon" href="./favicon.ico" type="image/x-icon">
+			<script src="./main.js"></script>
+			<link rel="stylesheet" type="text/css" href="./style.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+			<meta name="theme-color" content="#000000">
+			<meta content="IE=Edge" http-equiv="X-UA-Compatible">
+			<title>VK Mini App Boilerplate</title>
+	</head>
+	<body>
+			<div id="root">
+				<div style="display: none;">
+					<video preload="auto">
+						<source src="./media/enter.mp4" type="video/mp4">
+						<source src="./media/enter.webm" type="video/webm">
+					</video>
+					<video preload="auto">
+						<source src="./media/n.mp4" type="video/mp4">
+						<source src="./media/n.webm" type="video/webm">
+					</video>
+				</div>
+				<div id="console">
+					<table><tr><td><span class="blink">_</span></td><td></td></tr></table>
+				</div>
+				<div style="height:  55px;"></div>
+				<div id="buttons">
+					<button onClick="play('enter');">Enter</button>
+					<button onClick="play('n');">N</button>
+				</div>
+			</div>
+	</body>
+</html>
