@@ -58,6 +58,7 @@
                 } else {
                     curLe = 0;
                     curTd++;
+					window.scrollTo(0, document.body.scrollHeight);
                 }
                 if (curTd % 2 == 0 && curLe == 0) {
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
@@ -72,8 +73,8 @@
 				}
             } else {
                 tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
+				window.scrollTo(0, document.body.scrollHeight);
             }
-			window.scrollTo(0, document.body.scrollHeight);
         }
 
         function start() {
