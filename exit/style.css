@@ -50,7 +50,7 @@
             word-wrap: break-word;
         }
         
-        .blink {
+        #blink {
             animation: blink-animation 0.9s steps(5, start) infinite;
         }
         

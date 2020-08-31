@@ -60,7 +60,7 @@
                     curTd++;
                 }
                 if (curTd % 2 == 0 && curLe == 0) {
-                    if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
+                    if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span id='blink'><wbr>_</span>";
                     setTimeout(printLe, 4000/*speed * 50*/);
                 } else {
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<br><br>";
@@ -71,14 +71,15 @@
 					else end();
 				}
             } else {
-                tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
+                tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span id='blink'><wbr>_</span>";
             }
-            window.scrollTo(0, document.body.scrollHeight);
+			var blnk = document.getElementById("blink");
+            window.scrollTo(0, blnk.clientTop + blnk.clientHeight);
         }
 
         function start() {
             if (!started) {
-                let table = '<table><tr><td><span class="blink"><wbr>_</span></td><td></td></tr>';
+                let table = '<table><tr><td><span id="blink"><wbr>_</span></td><td></td></tr>';
                 for (let i = 0; i < (p.length / 2) - 1; i++) {
                     table += '<tr><td></td><td></td></tr>';
                 }
