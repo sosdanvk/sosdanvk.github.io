@@ -8,6 +8,7 @@
 
     vk.com/sosdan
 */
+import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
         var curLoc = new URL(window.location.href);
         window.mobilecheck = function() {
             var check = false;
