@@ -49,7 +49,7 @@
 			let btnShare = document.createElement("button");
 			btnShare.innerHTML = btnsTxt[1];
 			btnShare.onclick = function(){
-				vkBridge.send("VKWebAppShare", {"link": "https://vk.com/app7583491"});
+				vkBridge.send("VKWebAppShare", {"link": "https://vk.com/app7583491_-11233397"});
 			};
 			divBtn.appendChild(btnShare);
 			
