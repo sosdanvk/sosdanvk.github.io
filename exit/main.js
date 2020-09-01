@@ -23,6 +23,8 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
         var curLe = 0;
         
         document.addEventListener("DOMContentLoaded", function(event) {
+			dubugger;
+			bridge.send("VKWebAppInit");
             if (curLoc.searchParams.get("lang")) lang = curLoc.searchParams.get("lang");
         else if (navigator.language) lang = navigator.language.split('-')[0];
             var s = document.createElement("script");
@@ -79,7 +81,6 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
         }
 
         function start() {
-			bridge.send("VKWebAppInit");
             if (!started) {
                 let table = '<table><tr><td><span class="blink"><wbr>_</span></td><td></td></tr>';
                 for (let i = 0; i < (p.length / 2) - 1; i++) {
