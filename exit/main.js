@@ -8,7 +8,6 @@
 
     vk.com/sosdan
 */
-import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
         var curLoc = new URL(window.location.href);
         window.mobilecheck = function() {
             var check = false;
@@ -23,8 +22,7 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
         var curLe = 0;
         
         document.addEventListener("DOMContentLoaded", function(event) {
-			dubugger;
-			bridge.send("VKWebAppInit");
+			
             if (curLoc.searchParams.get("lang")) lang = curLoc.searchParams.get("lang");
         else if (navigator.language) lang = navigator.language.split('-')[0];
             var s = document.createElement("script");
@@ -61,14 +59,17 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
                 } else {
                     curLe = 0;
                     curTd++;
-					window.scrollTo(0, document.body.scrollHeight);
+					
                 }
                 if (curTd % 2 == 0 && curLe == 0) {
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
                     setTimeout(printLe, 4000/*speed * 50*/);
+					
                 } else {
                     if (curTd > 0) tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<br><br>";
                     setTimeout(printLe, speed);
+					
+					
                 }
 				if (curTd >= p.length) {
 					if (window.mobilecheck() || !document.hasFocus()) document.getElementById("buttons").style.display = "block";
@@ -76,8 +77,9 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
 				}
             } else {
                 tds[curTd - 1].innerHTML = p[curTd - 1].replace(/\n/g, "<br>") + "<span class='blink'><wbr>_</span>";
-				window.scrollTo(0, document.body.scrollHeight);
+				
             }
+			window.scrollTo(0, document.body.scrollHeight);
         }
 
         function start() {
@@ -104,6 +106,7 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
                 ended = true;
             });
         }
+		
         function play(file) {
             let html = "<video autoplay='1' poster='./media/"+file+".jpg'>";
             html += "<source src='./media/"+file+".mp4' type='video/mp4'>";
@@ -111,5 +114,8 @@ import bridge from 'https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js';
             html += "<img src='./media/"+file+".gif'>";
             html += "</video>";
             document.body.innerHTML = html;
-			document.getElementsByTagName("video")[0].play();
+			let video = document.getElementsByTagName("video")[0];
+			video.play();
+			video.addEventListener("ended", shareApp);
         }
+		

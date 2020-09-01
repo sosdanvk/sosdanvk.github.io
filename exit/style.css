@@ -9,7 +9,7 @@
     vk.com/sosdan
 */
 		html {
-            overflow-y:scroll;
+            overflow-y:auto;
         }
         body {
             background-color: rgba(12, 12, 12, 1);
@@ -17,6 +17,7 @@
             font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
             
         }
+		#root { padding-top 30px; }
         video {
 		    width: 100%; 
 			height: 99%; 
@@ -34,10 +35,9 @@
         }
         
         button {
-            width: 45%;
+            width: 30%;
             height: 30px;
         }
-        
         td {
             vertical-align: top;
         }

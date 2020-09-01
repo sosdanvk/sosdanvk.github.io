@@ -7,3 +7,8 @@ var p = [
     " ","Ready?"
 ]; 
 var speed = 80;
+var btnsTxt = [
+"Restart",
+"Share",
+"Group"
+];

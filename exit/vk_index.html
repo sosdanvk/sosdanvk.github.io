@@ -25,18 +25,8 @@
 	<meta property="og:description" content="YUKI. N> This is the Emergency Escape Program. To activate it, hit the “Enter” key, otherwise, hit any other key. Once activated, you will be given a chance to repair the space-time continuum.">
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:locale:alternate" content="ru_RU" />
-	<script>
-	function shareApp() {
-		var divBtn = document.createElement("div");
-		divBtn.style.position = "fixed";
-		divBtn.style.width = "100%";
-		divBtn.style.bottom = "0";
-		divBtn.style.background = "inherit";
-		divBtn.style.textAlign = "center";
-		divBtn.innerHTML = '<a href="https://vk.com/sosdan">vk.com/sosdan</a>';
-		document.body.appendChild(divBtn);
-	}
-	</script>
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script src="./vkBridge.js"></script>
 </head>
 
 <body>
