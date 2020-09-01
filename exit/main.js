@@ -78,6 +78,7 @@
         }
 
         function start() {
+			bridge.send("VKWebAppInit");
             if (!started) {
                 let table = '<table><tr><td><span class="blink"><wbr>_</span></td><td></td></tr>';
                 for (let i = 0; i < (p.length / 2) - 1; i++) {
