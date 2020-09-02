@@ -53,9 +53,10 @@
 			};
 			divBtn.appendChild(btnShare);
 			
-			/*let btnGroup  = document.createElement("button");
-			btnGroup.innerHTML = btnsTxt[2];
-			btnGroup.onclick = function(){
+			let btnGroup  = document.createElement("a");
+			btnGroup.innerHTML = '<button>' + btnsTxt[2] + '</button>';
+			btnGroup.href = "https://vk.com/sosdan";
+			/*btnGroup.onclick = function(){
 				vkBridge.send("VKWebAppJoinGroup", {"group_id": 11233397});
 			};*/
 			divBtn.appendChild(btnGroup);
